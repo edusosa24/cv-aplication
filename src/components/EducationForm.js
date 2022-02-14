@@ -7,35 +7,39 @@ const EducationForm = (props) => {
     <section id="educationForm">
       {props.formsNeeded.map((education) => {
         return (
-          <div id={education.id}>
+          <div id={education.id}
+               key={education.id}>
             <input
               type="text"
               placeholder="Degree/Course"
+              key={education.id}
               onChange={(e) => props.handleEducationChange(e, education.id, "degree")} />
 
             <input
               type="text"
               placeholder="Institute/Online Course/College name"
+              key={education.id}
               onChange={(e) => props.handleEducationChange(e, education.id, "institute")} />
 
             <div className="timeSpan">
-              <label htmlFor="from">From:</label>
+              <label>From:</label>
               <input
                 type="date"
-                id="from"
                 placeholder="From"
+                key={education.id}
                 onChange={(e) => props.handleEducationChange(e, education.id, "from")} />
 
-              <label htmlFor="until">Until:</label>
+              <label>Until:</label>
               <input
                 type="date"
-                id="until"
                 placeholder="Until"
+                key={education.id}
                 onChange={(e) => props.handleEducationChange(e, education.id, "until")} />
             </div>
             <button 
               type="button" 
               className="delete" 
+              key={education.id}
               onClick={() => props.handleEducationDelete(education.id)}>
                 Delete
             </button>
