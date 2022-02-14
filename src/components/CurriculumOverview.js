@@ -19,31 +19,49 @@ const CurriculumOverview = (props) => {
       <div className="cvEducationSection">
         <h3>STUDIES</h3>
         {props.educationList.map((education) => {
-          return(
-          <div className="cvEducation">
-            <p className="degree">{education.degree}</p>
-            <p className="institute">{education.institute}</p>
-            <p className="fromUntil">From: {education.from}  Until: {education.until}</p>
-          </div>
+          return (
+            <Education
+              key={education.id}
+              education={education}
+            />
           )
         })}
-        </div>
-        <hr />
-        <div className="cvExperienceSection">
-          <h3>EXPERIENCE</h3>
-          {props.experienceList.map((experience) => {
-            return(
-            <div className="cvExperience">
-              <p className="position">{experience.position}</p>
-              <p className="company">{experience.company}</p>
-              <p className="fromUntil">From:{experience.from} Until: {experience.until}</p>
-              <h4>Tasks done:</h4>
-              <p className="description">{experience.jobDescription}</p>
-            </div>
-            )
-          })}
-        </div>
+      </div>
+      <hr />
+      <div className="cvExperienceSection">
+        <h3>EXPERIENCE</h3>
+        {props.experienceList.map((experience) => {
+          return (
+            <Experience
+              key={experience.id}
+              experience={experience}
+            />
+          )
+        })}
+      </div>
     </section>
+  );
+};
+
+const Education = (props) => {
+  return (
+    <div className="cvEducation">
+      <p className="degree">{props.education.degree}</p>
+      <p className="institute">{props.education.institute}</p>
+      <p className="fromUntil">From: {props.education.from}  Until: {props.education.until}</p>
+    </div>
+  );
+};
+
+const Experience = (props) => {
+  return (
+    <div className="cvExperience">
+      <p className="position">{props.experience.position}</p>
+      <p className="company">{props.experience.company}</p>
+      <p className="fromUntil">From:{props.experience.from} Until: {props.experience.until}</p>
+      <h4>Tasks done:</h4>
+      <p className="description">{props.experience.jobDescription}</p>
+    </div>
   );
 };
 
